@@ -11,6 +11,12 @@
                         <label for="name">Category Name:</label>
                         <input type="text" name="name" id="name" class="form-control" required>
                     </div>
+                    @foreach($languages as $key)
+                        <div class="form-group">
+                            <label for="name">Category Name {{ $key }}:</label>
+                            <input type="text" name="name_{{ $key }}"  class="form-control" required>
+                        </div>
+                    @endforeach
                     <div class="form-group">
                         <label for="parent_id">Parent Category (optional):</label>
                         <select name="parent_id" id="parent_id" class="form-control">

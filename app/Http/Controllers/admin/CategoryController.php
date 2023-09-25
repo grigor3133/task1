@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Translation;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -20,7 +21,15 @@ class CategoryController extends Controller
             'parent_id' => 'nullable|exists:categories,id',
         ]);
 
-        Category::create($data);
+        $category = Category::create($data);
+
+        Translation::create([
+           'table_name'=>'categories',
+           'column_name'=>'name',
+           'row_id'=>$category->id,
+            'en'=> $request->name_en,
+            'ru'=>$request->name_ru,
+        ]);
 
         return redirect()->route('category')->with('success', 'Category created successfully');
     }

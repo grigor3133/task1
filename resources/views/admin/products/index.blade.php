@@ -8,10 +8,22 @@
             <label for="title">Title:</label>
             <input type="text" name="title" id="title" class="form-control" required>
         </div>
+        @foreach($languages as $key)
+            <div class="form-group">
+                <label for="title">Title:  {{ $key }}</label>
+                <input type="text" name="title_{{ $key }}"  class="form-control" required>
+            </div>
+        @endforeach
         <div class="form-group">
-            <label for="description">Description:</label>
+            <label for="description">Description: </label>
             <textarea name="description" id="description" class="form-control" required></textarea>
         </div>
+        @foreach($languages as $key)
+            <div class="form-group">
+                <label for="description">Description: {{ $key }}</label>
+                <textarea name="description_{{ $key }}"  class="form-control" required></textarea>
+            </div>
+        @endforeach
         <div class="form-group">
             <label for="price">Price:</label>
             <input type="number" name="price" id="price" class="form-control" step="0.01" required>

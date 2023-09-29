@@ -1,0 +1,13 @@
+.submenu-content{
+    position: absolute;
+    left: 100%;
+    top:0px;
+    display: none;
+}
+.header-submenu__item{
+    position: relative;
+}
+
+.header-submenu__item:hover .submenu-content{
+    display: block;
+}
